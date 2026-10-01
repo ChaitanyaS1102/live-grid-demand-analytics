@@ -16,6 +16,7 @@ behave like a continuously updated feed. EIA's grid-demand series is
 updated hourly and is the right fit for an actual live-refresh ETL.
 
 ## Architecture
+<img width="897" height="790" alt="image" src="https://github.com/user-attachments/assets/24f873ef-4a18-4279-bc8b-17de39253883" />
 
 ```
 EIA v2 API (electricity/rto/region-data)
