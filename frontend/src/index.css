@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header h1 {
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: 0;
+}
+
+.error-banner {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.controls {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  gap: 4px;
+}
+
+.controls select {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  min-width: 260px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.panel h2 {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.panel-row {
+  display: flex;
+  gap: 20px;
+}
+
+.empty,
+.loading {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.loading {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.controls select:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.dq-intro {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: -4px;
+}
+
+.dq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dq-item {
+  border-left: 3px solid #f59e0b;
+  padding: 4px 0 4px 14px;
+}
+
+.dq-item h3 {
+  font-size: 14px;
+  margin: 0 0 6px 0;
+}
+
+.dq-item p {
+  font-size: 13.5px;
+  color: #334155;
+  margin: 4px 0;
+  line-height: 1.5;
+}
+
+.dq-fix {
+  color: #166534;
+}
+
+.status-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.status-table th,
+.status-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.status-table th {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 800px) {
+  .panel-row {
+    flex-direction: column;
+  }
+}

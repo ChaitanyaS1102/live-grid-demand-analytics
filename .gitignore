@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.db
+node_modules/
+frontend/dist/
+.env
+data/raw/*.json
+!data/raw/.gitkeep

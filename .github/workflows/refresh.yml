@@ -1,0 +1,35 @@
+# Scheduled live-data refresh. This is the piece that makes the project a
+# genuine ingestion pipeline rather than a one-time CSV load: every run
+# re-pulls a rolling window from EIA's API and upserts it, picking up both
+# new hours and any revisions EIA has made to recently published ones.
+#
+# Requires an EIA_API_KEY repo secret (free key: https://www.eia.gov/opendata/register.php)
+# and a persistent place to write the DB (DATABASE_URL repo secret pointing
+# at a real Postgres/MySQL instance) -- SQLite on the GitHub-hosted runner's
+# ephemeral filesystem would just be discarded at the end of each run.
+name: Scheduled EIA refresh
+
+on:
+  schedule:
+    - cron: "17 * * * *" # hourly, offset from the hour to avoid EIA's own publish spike
+  workflow_dispatch: {} # allows a manual "Run workflow" click for testing
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run incremental refresh
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: python -m etl.run --incremental
