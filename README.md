@@ -14,9 +14,9 @@ Law 84 building-energy-disclosure dataset — that dataset is self-reported
 **once a year per building**, so no amount of "live" API polling makes it
 behave like a continuously updated feed. EIA's grid-demand series is
 updated hourly and is the right fit for an actual live-refresh ETL.
+<img width="897" height="790" alt="image" src="https://github.com/user-attachments/assets/24f873ef-4a18-4279-bc8b-17de39253883" />
 
 ## Architecture
-<img width="897" height="790" alt="image" src="https://github.com/user-attachments/assets/24f873ef-4a18-4279-bc8b-17de39253883" />
 
 ```
 EIA v2 API (electricity/rto/region-data)
